@@ -6,7 +6,7 @@
      * @param: Size of the array
      * @return: Median of the array
      */
-    int halfSelectionSort ( std::vector<int>& nums, int& duration){
+    int HalfSelectionSort::halfSelectionSort ( std::vector<int>& nums, int& duration){
         if (nums.size() > 50000){
             std::cout <<"Input too large for selection sort"<<std::endl;
         }

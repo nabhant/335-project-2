@@ -5,7 +5,7 @@
 #include <vector>
 #include <chrono>
 
-class SelectionSort{
+class HalfSelectionSort{
 public:
     /**
      * @post: Sorts the array until the median, a halfway SelectionSort
