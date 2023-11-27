@@ -1,6 +1,6 @@
 #ifndef MERGESORT_HPP
 #define MERGESORT_HPP
-#include <iostreaam>
+#include <iostream>
 #include <vector>
 #include <chrono> 
 
@@ -12,7 +12,7 @@ class MergeSort{
          * @param: Integer to store the duration of the sort
          * @return: Median of the array
          */
-        int MergeSort ( std::vector<int>& nums, int& duration );
+        int mergeSort ( std::vector<int>& nums, int& duration );
 };
 
 #endif

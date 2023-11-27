@@ -15,6 +15,6 @@ public:
      * @return: Median of the array
      */
     int inPlaceMergeSort ( std::vector<int>& nums, int& duration );
-}
+};
 
 #endif

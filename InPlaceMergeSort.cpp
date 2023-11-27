@@ -11,7 +11,7 @@ int inPlaceMergeSort ( std::vector<int>& nums, int& duration ){
     // Iterators
     auto start = nums.begin();
     auto mid = nums.begin()+ nums.size() / 2;
-    auto end = nums.end(); // Check this later, may be wrong bc of even/odd arr
+    auto end = nums.end(); 
     auto start2 = mid + 1;
 
     while ( start <= mid && start2 <= end ){
@@ -34,5 +34,5 @@ int inPlaceMergeSort ( std::vector<int>& nums, int& duration ){
         }
     }
     auto end_time = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();    return nums[mid];
+    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();    return nums[nums.size()/2];
 };

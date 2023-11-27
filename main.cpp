@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include "SelectionSort.hpp"
+#include "HalfSelectionSort.hpp"
 
 int main() {
-    SelectionSort s;
+    HalfSelectionSort s;
     std::vector<int> arr = {9, 7, 5, 3, 1, 2, 4, 6, 8};
-    s.selectionSort(arr, 5);
-    s.printArray(arr, 9);
+    int duration = 5;
+    std::cout<<s.halfSelectionSort(arr, duration)<<std::endl;
     return 0;
 }
