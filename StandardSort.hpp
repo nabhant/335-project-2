@@ -12,8 +12,15 @@
 */
 int standardSort ( std::vector<int>& nums, int& duration ){
     auto start = std::chrono::high_resolution_clock::now();
+
     std::sort(nums.begin(), nums.end());
+
     auto end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    std::chrono::duration<double> diff = end - start;
+    duration = static_cast<int>(diff.count() * 1000);  // Convert to milliseconds        
+
+    if (nums.size() % 2 == 0){
+        return nums[nums.size()/2 - 1];
+    }
     return nums[nums.size()/2];
 }

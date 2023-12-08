@@ -2,42 +2,30 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 
-
-/**
-    * @post: Sorts the array using InPlaceMergeSort
-    * @param: Array of integers
-    * @param: Integer to store the duration of the sort
-    * @return: Median of the array
-*/
-int inPlaceMergeSort ( std::vector<int>& nums, int& duration ){
-    auto start_time = std::chrono::high_resolution_clock::now();
-    // Iterators
-    auto start = nums.begin();
-    auto mid = nums.begin()+ nums.size() / 2;
-    auto end = nums.end(); 
-    auto start2 = mid + 1;
-
-    while ( start <= mid && start2 <= end ){
-        if ( *start < *start2 ){
-            start++;
-        }
-        else{
-            auto value = *start2;
-            auto index = start2;
-
-            while ( index != start ){
-                *index = *(index - 1);
-                index--;
-            }
-            *start = value;
-
-            start++;
-            mid++;
-            start2++;
-        }
+void inPlaceRecursiveCall(std::vector<int>& nums, std::vector<int>::iterator start, std::vector<int>::iterator end) {
+    if (start < end - 1) {
+        auto mid = start + std::distance(start, end) / 2;
+        inPlaceRecursiveCall(nums, start, mid); 
+        inPlaceRecursiveCall(nums, mid, end);   
+        std::inplace_merge(start, mid, end);        
     }
-    auto end_time = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();    
-    return nums[nums.size()/2];
+}
+
+int inPlaceMergeSort(std::vector<int>& nums, int& duration) {
+    auto start = std::chrono::high_resolution_clock::now();
+
+    inPlaceRecursiveCall(nums, nums.begin(), nums.end());
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end - start;
+    duration = static_cast<int>(diff.count() * 1000);
+
+     if (nums.size() % 2 == 0 )
+    {
+        return nums[(nums.size() / 2) -1];
+    }else{
+        return nums[nums.size() / 2];
+    } // Return the median
 }
