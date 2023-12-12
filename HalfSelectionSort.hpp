@@ -38,6 +38,7 @@
             }
         }
         auto end = std::chrono::high_resolution_clock::now();
-        duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+        std::chrono::duration<double> difference = end - start;
+        duration = static_cast<int>(difference.count() * 1000);
         return nums[nums.size()/2];
     }
