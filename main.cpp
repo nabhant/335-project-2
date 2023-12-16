@@ -51,7 +51,7 @@ int main() {
     int duration = 0;
 
     // Call quickSelect function
-    int median = halfSelectionSort(numbers, duration);
+    int median = quickSelect(numbers, duration);
 
     std::cout<<"************************************************************************************************"<<std::endl;
     // Print the results
