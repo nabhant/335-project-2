@@ -5,11 +5,9 @@
 
 
 std::vector<int> worstCaseQuickSelect (void){
-    std::vector<int> nums(20000);
-    int val = 20000;
-    for (auto it = nums.begin(); it != nums.end(); --it){
-        *it = val;
-        val--;
+    std::vector<int> nums;
+    for (int i = 20000; i >=1; i--){
+        nums.push_back(i);
     }
     return nums;
 }
