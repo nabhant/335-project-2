@@ -12,9 +12,10 @@
 #include "StandardSort.hpp"
 #include "HalfHeapSort.hpp"
 #include "QuickSelect.hpp"
+#include "WorstCaseQuickSelect.hpp"
 
 int main() {
-    std::string filepath = "inputs/input4.txt";
+    std::string filepath = "inputs/input9.txt";
 
     std::ifstream inputFile(filepath);
 
@@ -50,35 +51,13 @@ int main() {
 
     int duration = 0;
 
-    // Call quickSelect function
-    int median = quickSelect(numbers, duration);
+    std::vector<int> WorstCaseQuickSelect = worstCaseQuickSelect();
+    int median = quickSelect(WorstCaseQuickSelect, duration);
 
     std::cout<<"************************************************************************************************"<<std::endl;
     // Print the results
     std::cout << "Median: " << median << std::endl;
-    std::cout << "Duration: " << duration << " microseconds" << std::endl;
-
-
-    for (int i = 0; i < numbers.size(); i++) {
-        std::cout << numbers[i] << " ";
-    }
-    
-
-    // int duration1 = 0, duration2 = 0;
-    // std::vector<int> nums = {3, 1, 2, 4, 5, 7, 7, 6, 9};    // Expected output 1 2 3 4 5 6 7 7 9, median = 5
-    // std::vector<int> nums2 = {10, 7, 3, 2, 5, 6, 8, 4, 9, 1}; // Expected output 1 2 3 4 5 6 7 8 9 10, median = 5
-
-    
-    // int median1 = inPlaceMergeSort(nums, duration1);
-
-    // std::cout << "Sorted Array 1: ";
-    // for (int num : nums) {
-    //     std::cout << num << " ";
-    // }
-    // std::cout << std::endl;
-
-    // std::cout << "Median 1: " << median1 << std::endl;
-    // std::cout << "Duration 1: " << duration1 << " microseconds" << std::endl;
+    std::cout << "Duration: " << duration << " milliseconds" << std::endl;
 
     return 0;
 }
